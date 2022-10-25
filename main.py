@@ -1,3 +1,4 @@
+import sys
 import cv2
 import qrcode
 
@@ -14,6 +15,7 @@ class MyGUI(QMainWindow):
         self.current_file = ""
         self.actionLoad.triggered.connect(self.load_image)
         self.actionSave.triggered.connect(self.save_image)
+        self.actionQuit.triggered.connect(self.quit_program)
 
         self.pushButton.clicked.connect(self.generate_code)
         self.pushButton_2.clicked.connect(self.read_code)
@@ -61,6 +63,9 @@ class MyGUI(QMainWindow):
         detector = cv2.QRCodeDetector()
         data, _, _ = detector.detectAndDecode(img)
         self.textEdit.setText(data)
+
+    def quit_program(self):
+        sys.exit(0)
 
 
 def main():
