@@ -34,7 +34,21 @@ class MyGUI(QMainWindow):
         pass
 
     def generate_code(self):
-        pass
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=20,
+            border=2,
+        )
+        qr.add_data(self.textEdit.toPlainText())
+        qr.make(fit=True)
+
+        img = qr.make_image(fill_color="black", back_color="white")
+        img.save("currentqr.png")
+        pixmap = QtGui.QPixmap("currentqr.png")
+        pixmap = pixmap.scaled(300, 300)
+        self.label.setScaledContents(True)
+        self.label.setPixmap(pixmap)
 
     def read_code(self):
         img = cv2.imread(self.current_file)
