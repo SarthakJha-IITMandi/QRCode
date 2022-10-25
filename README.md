@@ -1,1 +1,1 @@
-# QRCode
+# QRCode Scanner and Generator App
