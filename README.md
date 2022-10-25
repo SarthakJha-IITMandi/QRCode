@@ -1,6 +1,6 @@
 # QRCode Scanner and Generator App
 
-A python app to read and create QR codes with GUI
+A python app to read and create QR codes with GUI - Completed
 
 ## Packages required
 
