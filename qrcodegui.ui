@@ -73,12 +73,12 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSave">
    <property name="text">
-    <string>Load</string>
+    <string>Save</string>
    </property>
   </action>
   <action name="actionLoad">
    <property name="text">
-    <string>Save</string>
+    <string>Load</string>
    </property>
   </action>
   <action name="actionQuit">

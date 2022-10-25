@@ -13,7 +13,7 @@ class MyGUI(QMainWindow):
 
         self.current_file = ""
         self.actionLoad.triggered.connect(self.load_image)
-        self.actionSave.triggered.connect(self.load_image)
+        self.actionSave.triggered.connect(self.save_image)
 
         self.pushButton.clicked.connect(self.generate_code)
         self.pushButton_2.clicked.connect(self.read_code)
@@ -31,7 +31,13 @@ class MyGUI(QMainWindow):
             self.label.setPixmap(pixmap)
 
     def save_image(self):
-        pass
+        options = QFileDialog.Options()
+        filename, _ = QFileDialog.getSaveFileName(
+            self, "Save File", "", "PNG (*.png)", options=options
+        )
+        if filename != "":
+            img = self.label.pixmap()
+            img.save(filename, "PNG")
 
     def generate_code(self):
         qr = qrcode.QRCode(
