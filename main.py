@@ -37,7 +37,10 @@ class MyGUI(QMainWindow):
         pass
 
     def read_code(self):
-        pass
+        img = cv2.imread(self.current_file)
+        detector = cv2.QRCodeDetector()
+        data, _, _ = detector.detectAndDecode(img)
+        self.textEdit.setText(data)
 
 
 def main():
